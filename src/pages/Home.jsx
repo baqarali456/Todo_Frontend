@@ -20,10 +20,7 @@ function Home() {
       })
       .catch(error=>console.log(error))
     }
-
-
-
-  },[])
+  },[]);
 
   const handleTodos = async(e) =>{
     
@@ -40,7 +37,7 @@ function Home() {
         let todo = todos.find(ele=>ele.Title === e.target.parentElement.parentElement.querySelector('h1').innerText?.trim())
          try {
           await axios.delete(`https://todobackend-p71y.onrender.com/api/v1/todos/delete-todo/${todo._id}`,{withCredentials:true})
-          navigate('/')
+           dispatch(getTodos(todos.filter(ele=>ele._id !== todo._id)))
          } catch (error) {
           console.log(error)
          }
