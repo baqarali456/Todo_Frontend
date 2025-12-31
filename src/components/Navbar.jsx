@@ -30,7 +30,7 @@ function Navbar() {
     try {
       await axios.post(
         `https://todobackend-p71y.onrender.com/api/v1/users/logout-user`,
-        {},
+        '',
         {
           withCredentials: true,
         }

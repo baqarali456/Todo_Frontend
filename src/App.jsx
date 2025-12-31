@@ -12,7 +12,7 @@ function App() {
 
   useEffect(() => {
     axios
-      .post("https://todobackend-p71y.onrender.com/api/v1/users/get-user", "", {
+      .get("https://todobackend-p71y.onrender.com/api/v1/users/get-user", {
         withCredentials: true,
       })
       .then((response) => {
