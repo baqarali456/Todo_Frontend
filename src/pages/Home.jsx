@@ -7,7 +7,7 @@ import TodoForm from "../components/TodoForm";
 function Home() {
   const dispatch = useDispatch();
   const authStatus = useSelector(state=>state.authStatus);
-  const todos = useSelector(state=>state.todos);
+  const todos = useSelector(state=>state.todos) || [];
   
 
   useEffect(()=>{
@@ -25,7 +25,7 @@ function Home() {
 
   const handleTodos = async(e) =>{
       if(e.target.innerText === "Update"){
-         let todo = todos.find(ele=>ele._id === e.target.parentElement.parentElement.innerText?.trim())
+         let todo = todos.find(ele=>ele._id === e.target.parentElement.parentElement.getAttribute('key'))
          if(todo){
            <TodoForm todo={todo}/>
          }
@@ -34,8 +34,12 @@ function Home() {
          }
       }
       if(e.target.innerText === "Delete"){
-        let todo = todos.find(ele=>ele._id === e.target.parentElement.parentElement.innerText?.trim())
-         await axios.delete(`https://todobackend-p71y.onrender.com/api/v1/todos/delete-todo/${todo._id}`,{withCredentials:true})
+        let todo = todos.find(ele=>ele._id === e.target.parentElement.parentElement.getAttribute('key'))
+         try {
+          await axios.delete(`https://todobackend-p71y.onrender.com/api/v1/todos/delete-todo/${todo._id}`,{withCredentials:true})
+         } catch (error) {
+          console.log(error)
+         }
       }
   }
 
