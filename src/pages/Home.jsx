@@ -26,6 +26,7 @@ function Home() {
     
       if(e.target.innerText === "Update"){
          let todo = todos.find(ele=>ele.Title === e.target.parentElement.parentElement.querySelector('h1').innerText?.trim())
+         console.log(todo);
          if(todo){
            <TodoForm todo={todo}/>
          }
