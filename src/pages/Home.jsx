@@ -48,8 +48,8 @@ function Home() {
       {
         todos.length > 0 ? todos.map(todo=>(
           <div key={todo._id} className=" bg-orange-500 text-white rounded shadow p-3 w-50">
-            <h1 className=" text-2xl font-semibold">{todo.title}</h1>
-            <p className=" p-1 text-sm ">{todo.Description}</p>
+            <h1 className=" text-2xl font-semibold">{todo.Title}</h1>
+            {todo.Description && <p className=" p-1 text-sm ">{todo.Description}</p>}
             <div className=" flex items-center justify-between p-2">
                <button className="bg-green-500 rounded shadow p-2">Update</button>
                <button className="bg-red-500 rounded shadow p-2">Delete</button>
