@@ -24,6 +24,11 @@ function Navbar() {
       name: "SignUp",
       show: !authStatus,
     },
+    {
+      path: "/addTodo",
+      name: "AddTodo",
+      show: authStatus,
+    },
   ];
 
   const handleLogout = async () => {
