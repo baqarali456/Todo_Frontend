@@ -31,6 +31,10 @@ const router = createBrowserRouter([
         path:"addTodo",
         element:<TodoForm/>
       },
+      {
+        path:"editTodo/:todoId",
+        element:<EditTodo/>
+      },
     ]
   }
 ])

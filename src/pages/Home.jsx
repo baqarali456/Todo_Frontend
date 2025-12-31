@@ -28,7 +28,7 @@ function Home() {
          let todo = todos.find(ele=>ele.Title === e.target.parentElement.parentElement.querySelector('h1').innerText?.trim())
          console.log(todo);
          if(todo){
-           <TodoForm todo={todo}/>
+           navigate(`/editTodo/${todo._id}`)
          }
          else{
           console.log(todo);
