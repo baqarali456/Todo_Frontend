@@ -14,7 +14,7 @@ function Home() {
     if(authStatus){
       axios.get('https://todobackend-p71y.onrender.com/api/v1/todos/getAll-userTodos',{withCredentials:true})
       .then(response=>{
-           dispatch(getTodos(response.data.data.aggregatedTodos))
+           dispatch(getTodos(response.data.data.todos))
       })
       .catch(error=>console.log(error))
     }
