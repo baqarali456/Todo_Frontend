@@ -3,8 +3,11 @@ import { useForm } from 'react-hook-form';
 import Input from "./Input"
 import Button from "./Button"
 import axios from 'axios';
+import { useNavigate } from 'react-router-dom';
 
 function TodoForm({todo}) {
+
+    const navigate = useNavigate()
 
     const {register,handleSubmit} = useForm({
         defaultValues:{
@@ -26,6 +29,7 @@ function TodoForm({todo}) {
             else{
               await axios.post('https://todobackend-p71y.onrender.com/api/v1/todos//add-todo',data,{withCredentials:true})
             }
+            navigate('/')
         } catch (error) {
             console.log(error)
             setError(error.response?.data.message || "some error")
